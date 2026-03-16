@@ -10,7 +10,7 @@ export default function CareerForm() {
     setStatus("sending");
 
     const formData = new FormData(e.target as HTMLFormElement);
-    formData.append("access_key", "17366882-d8dc-47b5-81c0-22fc4d2470bf");
+    formData.append("access_key", "b45a7395-2af8-42a3-a313-44ba3d0e1912");
     formData.append("subject", "New Career Application — Divine Grace Industries");
 
     const response = await fetch("https://api.web3forms.com/submit", {
