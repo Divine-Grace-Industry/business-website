@@ -26,7 +26,7 @@ export default function CategoryBanner({
           priority
           sizes="100vw"
           className="object-cover object-center"
-          style={{ opacity: 0.20 }}
+          style={{ opacity: 0.5 }}
         />
       </div>
 

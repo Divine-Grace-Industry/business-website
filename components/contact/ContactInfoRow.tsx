@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 const contactDetails = [
-  { label: "Company", value: "Divine Grace Industries LLC" },
+  { label: "Company", value: "DIVINE GRACE INDUSTRIES LLC" },
   {
     label: "Address",
-    value: "Shop No /GF 22, Delux Complex, Opp : New Marketing Yard, NH -27, Nr, Chokdi, Gundala, Gondal, Gujarat 360311",
+    value: "Shop No/GF 22, Delux Complex, Opp: New Marketing Yard, NH-27, Nr, Gundala Chowkdi, Gondal, District Rajkot Gujarat-360311 (INDIA)",
   },
-  { label: "Phone", value: "+91 9537752502", link:'tel:+919537752502' },
-  { label: "Email", value: " divinegrace.ind@gmail.com", link:'mailto:divinegrace.ind@gmail.com' },
+  { label: "Phone", value: "+91 9537752502", link: 'tel:+919537752502' },
+  { label: "Email", value: " divinegrace.ind@gmail.com", link: 'mailto:divinegrace.ind@gmail.com' },
 ];
 
 export default function ContactInfoRow() {

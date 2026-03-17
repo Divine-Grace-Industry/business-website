@@ -14,8 +14,8 @@ export default function ProductsBanner() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center grayscale"
-          style={{ opacity: 0.35 }}
+          className="object-cover object-center"
+          style={{ opacity: 0.5 }}
         />
         {/* Gradient from bottom — matches original */}
         <div
