@@ -1,8 +1,44 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+const CYCLING_WORDS = ["Raw Materials", "Metals", "Chemicals", "Ferro Alloys", "Minerals"];
 
 export default function HeroSection() {
+    const [displayText, setDisplayText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = CYCLING_WORDS[wordIndex];
+
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayText === currentWord) {     
+      // Fully typed — pause then start deleting
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } 
+    else if (isDeleting && displayText === "") {
+      // Fully deleted — move to next word
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % CYCLING_WORDS.length);
+    } 
+    else {
+      // Typing or deleting
+      const speed = isDeleting ? 60 : 100;
+      timeout = setTimeout(() => {
+        setDisplayText((prev) =>
+          isDeleting
+            ? currentWord.slice(0, prev.length - 1)
+            : currentWord.slice(0, prev.length + 1)
+        );
+      }, speed);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, wordIndex]);
+
   return (
     <section className="relative flex items-center" style={{ height: "600px" }}>
       {/* Background Image */}
@@ -18,7 +54,7 @@ export default function HeroSection() {
         {/* Overlay */}
         <div
           className="absolute inset-0 z-10"
-          style={{ backgroundColor: "rgba(28, 58, 107, 0.82)" }}
+          style={{ backgroundColor: "rgba(28, 58, 107, 0.5)" }}
         />
       </div>
 
@@ -34,7 +70,24 @@ export default function HeroSection() {
             maxWidth: "900px",
           }}
         >
-          Your Trusted Supplier of Industrial Raw Materials
+          Your Trusted Supplier of Industrial{" "}
+          <span
+            style={{
+              color: "#7DD3FC",
+              borderRight: "3px solid #7DD3FC",
+              paddingRight: "4px",
+              animation: "blink 0.7s step-end infinite",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {displayText}
+          </span>
+          <style>{`
+            @keyframes blink {
+              0%, 100% { border-color: #7DD3FC; }
+              50% { border-color: transparent; }
+            }
+          `}</style>
         </h1>
         <p
           className="mx-auto mb-10"
@@ -46,7 +99,7 @@ export default function HeroSection() {
             lineHeight: "var(--leading-relaxed)",
           }}
         >
-          Zircon Sands · Minerals · Metals · Chemicals · Ferro Alloys · Scrap —
+          Zircon Sands · Minerals · Metals · Chemicals · Ferro Alloys · Scrap -
           Sourced Globally, Delivered Reliably
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
