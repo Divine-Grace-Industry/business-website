@@ -3,7 +3,7 @@ import { url } from "inspector";
 import Image from "next/image";
 import Link from "next/link";
 
-const quickLinks = ["Home", "About Us", "Products","Certificates", "Contact-Us"];
+const quickLinks = ["Home", "About Us", "Products", "Certificates", "Contact-Us"];
 
 export default async function Footer() {
   const categories = await getCategories();
@@ -56,9 +56,9 @@ export default async function Footer() {
                   svg: (
                     <path fillRule="evenodd" clipRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                   ),
-                  url:'https://www.linkedin.com/in/divine-grace-industries-llc-66a7181a3/?originalSubdomain=in'
+                  url: 'https://www.linkedin.com/in/divine-grace-industries-llc-66a7181a3/?originalSubdomain=in'
                 },
-              ].map(({ label, svg,url }) => (
+              ].map(({ label, svg, url }) => (
                 <a
                   key={label}
                   href={url || '#'}
@@ -109,7 +109,7 @@ export default async function Footer() {
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined mt-0.5" style={{ color: "var(--color-secondary)", fontSize: "18px" }}>location_on</span>
                 <span style={{ color: "var(--color-navy-300)", fontSize: "var(--text-sm)" }}>
-                  Shop No /GF 22, Delux Complex, Opp : New Marketing Yard, NH -27, Nr, Chokdi, Gundala, Gondal, Gujarat 360311
+                  Shop No/GF 22, Delux Complex, Opp: New Marketing Yard, NH-27, Nr, Gundala Chowkdi, Gondal, District Rajkot Gujarat-360311 (INDIA)
                 </span>
               </li>
               <li className="flex items-center gap-3">

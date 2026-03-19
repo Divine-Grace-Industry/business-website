@@ -52,7 +52,7 @@ export default async function HomePage() {
 
   return (
     <main style={{ paddingTop: "70px" }}>
-      <HeroSection />
+      <HeroSection categories={data} />
       <StatsBar />
       <AboutSection />
       <ProductsSection data={data} />
